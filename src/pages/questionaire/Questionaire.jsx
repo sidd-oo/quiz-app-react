@@ -14,7 +14,7 @@ const Questionaire = () => {
         </div>
       </section>
 
-  </div>;
+  </div>
 };
 
 export default Questionaire;
