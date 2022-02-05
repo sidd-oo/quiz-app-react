@@ -1,0 +1,13 @@
+.header{
+    height: 5vh;
+    background-color: #218380;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-weight: normal;
+    font-size: 24px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-style: normal;
+    padding: 10px;
+}
