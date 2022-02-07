@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import Header from "../../components/header/Header";
 import "./Highscore.css";
 
@@ -13,7 +14,9 @@ const Highscore = () => {
           <li>Ibrahim - 38</li>
         </ol>
         <div className="buttons">
-          <button class="btn">Go Back</button>
+          <Link to="/" className="link">
+            <button class="btn">Go Back</button>
+          </Link>
           <button class="btn">Clear Highscore</button>
         </div>
       </section>

@@ -1,10 +1,15 @@
+import { Link } from "react-router-dom";
 import "./Header.css";
 
-const Header = () => {
+const Header = (props) => {
   return (
     <div className="header">
-      <p>View Highscore </p>
-      <p>Time: <span>50</span> sec</p>
+      <Link to="/highscore" className="link">
+        <p>View Highscore </p>
+      </Link>
+      <p>
+        Time: <span>50</span> sec
+      </p>
     </div>
   );
 };

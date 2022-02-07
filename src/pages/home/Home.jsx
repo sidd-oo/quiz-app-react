@@ -1,5 +1,6 @@
-import './Home.css'
+import "./Home.css";
 import Header from "../../components/header/Header";
+import { Link } from "react-router-dom";
 
 const Home = () => {
   return (
@@ -15,7 +16,9 @@ const Home = () => {
           Keep in mind that every incorrect answer will penalize your score/time
           by ten seconds!
         </p>
-        <button class="start-btn">Start Quiz</button>
+        <Link to="quiz/0" className="link">
+          <button class="start-btn">Start Quiz</button>
+        </Link>
       </section>
     </div>
   );
