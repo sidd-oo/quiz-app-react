@@ -8,7 +8,7 @@ const Questionaire = () => {
   const [questionNumber, setQuestionNumber] = useState(0);
   const [isAnswerCorrect, setIsAnswerCorrect] = useState("");
   const [isAnswered, setIsAnswered] = useState(false);
-  // const [score, setScore] = useState(0);
+  const [score, setScore] = useState(0);
 
   let navigate = useNavigate();
 
@@ -16,7 +16,7 @@ const Questionaire = () => {
     setIsAnswered(true);
     if (questionaire[questionNumber].answer === e.target.id) {
       setIsAnswerCorrect("Correct");
-      // setScore(score + 10);
+      setScore(score + 10);
       setTimeout(() => {
         setIsAnswerCorrect("");
         setIsAnswered(false);
@@ -64,7 +64,7 @@ const Questionaire = () => {
           </section>
         </>
       ) : (
-        <>{navigate("/result")}</>
+        <>{navigate("/result", { state: score })}</>
       )}
     </div>
   );
