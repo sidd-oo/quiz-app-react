@@ -1,7 +1,7 @@
 import Header from "../../components/header/Header";
 import "./Questionaire.css";
 import { questionaire } from "../../data/questionaire";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 const Questionaire = () => {
@@ -9,8 +9,16 @@ const Questionaire = () => {
   const [isAnswerCorrect, setIsAnswerCorrect] = useState("");
   const [isAnswered, setIsAnswered] = useState(false);
   const [score, setScore] = useState(0);
+  const [timer, setTimer] = useState(50);
 
   let navigate = useNavigate();
+
+  useEffect(() => {
+    const timerId = setInterval(()=>{
+      setTimer(timer -1);
+    },1000);
+    return ()=> clearInterval(timerId);
+  });
 
   const handleClick = (e) => {
     setIsAnswered(true);
@@ -24,6 +32,7 @@ const Questionaire = () => {
       }, 1000);
     } else {
       setIsAnswerCorrect("InCorrect");
+      setTimer(timer-10);
       setTimeout(() => {
         setIsAnswerCorrect("");
         setIsAnswered(false);
@@ -34,9 +43,10 @@ const Questionaire = () => {
 
   return (
     <div className="questionaire">
-      <Header />
+      <Header timer={timer}/>
       {questionNumber < questionaire.length - 1 ? (
-        <>
+         timer >= 0 ? (
+          <>
           <section className="home-section">
             <h1 className="question">
               {questionaire[questionNumber].question}
@@ -63,6 +73,10 @@ const Questionaire = () => {
             )}
           </section>
         </>
+        ):
+      <>
+       { navigate('/result', {state: score}) }
+      </>
       ) : (
         <>{navigate("/result", { state: score })}</>
       )}

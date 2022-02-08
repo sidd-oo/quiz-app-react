@@ -8,7 +8,7 @@ const Header = (props) => {
         <p>View Highscore </p>
       </Link>
       <p>
-        Time: <span>50</span> sec
+        Time: <span>{props.timer ? props.timer : 50}</span> sec
       </p>
     </div>
   );
