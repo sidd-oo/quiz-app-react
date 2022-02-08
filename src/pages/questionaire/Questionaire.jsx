@@ -42,16 +42,16 @@ const Questionaire = () => {
               {questionaire[questionNumber].question}
             </h1>
             <div className="answers">
-              <button class="option" id="a" disabled = {isAnswered} onClick={(e) => handleClick(e)}>
+              <button className="option" id="a" disabled = {isAnswered} onClick={(e) => handleClick(e)}>
                 {questionaire[questionNumber].options.a}
               </button>
-              <button class="option" id="b" disabled = {isAnswered} onClick={(e) => handleClick(e)}>
+              <button className="option" id="b" disabled = {isAnswered} onClick={(e) => handleClick(e)}>
                 {questionaire[questionNumber].options.b}
               </button>
-              <button class="option" id="c" disabled = {isAnswered} onClick={(e) => handleClick(e)}>
+              <button className="option" id="c" disabled = {isAnswered} onClick={(e) => handleClick(e)}>
                 {questionaire[questionNumber].options.c}
               </button>
-              <button class="option" id="d" disabled = {isAnswered} onClick={(e) => handleClick(e)}>
+              <button className="option" id="d" disabled = {isAnswered} onClick={(e) => handleClick(e)}>
                 {questionaire[questionNumber].options.d}
               </button>
             </div>

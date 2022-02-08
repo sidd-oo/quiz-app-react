@@ -1,16 +1,38 @@
-import { useLocation } from 'react-router-dom';
-import './Result.css';
+import { useState } from "react";
+import { useLocation, useNavigate } from "react-router-dom";
+import "./Result.css";
 
 const Result = (props) => {
-  const { state } = useLocation();
-  return <div className='result'>
+  const { state: scored } = useLocation();
+  const [initials, setInitials] = useState("");
+
+  const navigate = useNavigate();
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    let scores = JSON.parse(localStorage.getItem("scores"));
+
+    let score = {
+      ...scores,
+      [initials]: scored,
+    };
+    localStorage.setItem("scores", JSON.stringify(score));
+    navigate('/highscore');
+  };
+
+  return (
+    <div className="result">
       <section className="home-section">
         <h1>All done!</h1>
-        <p>Your final score is {state}</p>
-        <p>Enter initials: <input type="text" /></p>
-        <button>Submit</button>
+        <p>Your final score is {scored}</p>
+        <p>
+          Enter initials:{" "}
+          <input type="text" onChange={(e) => setInitials(e.target.value)} />
+        </p>
+        <button onClick={(e) => handleSubmit(e)}>Submit</button>
       </section>
-  </div>;
+    </div>
+  );
 };
 
 export default Result;

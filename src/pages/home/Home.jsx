@@ -17,7 +17,7 @@ const Home = () => {
           by ten seconds!
         </p>
         <Link to="quiz/0" className="link">
-          <button class="start-btn">Start Quiz</button>
+          <button className="start-btn">Start Quiz</button>
         </Link>
       </section>
     </div>
