@@ -1,5 +1,5 @@
 .header{
-    height: 5vh;
+    height: 40px;
     background-color: #218380;
     color: white;
     display: flex;
@@ -10,4 +10,10 @@
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     font-style: normal;
     padding: 10px;
+}
+
+@media screen and (max-width: 400px) {
+    .header{
+        font-size: 20px;
+    }
 }
