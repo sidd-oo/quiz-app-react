@@ -17,20 +17,24 @@ const Result = (props) => {
       [initials]: scored,
     };
     localStorage.setItem("scores", JSON.stringify(score));
-    navigate('/highscore');
+    navigate("/highscore");
   };
 
   return (
     <div className="result">
-      <section className="home-section">
-        <h1>All done!</h1>
-        <p>Your final score is {scored}</p>
-        <p>
-          Enter initials:{" "}
-          <input type="text" onChange={(e) => setInitials(e.target.value)} />
-        </p>
-        <button onClick={(e) => handleSubmit(e)}>Submit</button>
-      </section>
+      <div className="result-main">
+        <section className="result-section">
+          <h1>All done!</h1>
+          <p className="subtitle">Your final score is {scored}</p>
+          <p className="inputTitle">
+            Enter initials:{" "}
+            <input type="text" onChange={(e) => setInitials(e.target.value)} />
+          </p>
+          <button onClick={(e) => handleSubmit(e)}>
+            Submit
+          </button>
+        </section>
+      </div>
     </div>
   );
 };

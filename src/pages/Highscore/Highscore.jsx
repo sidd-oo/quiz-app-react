@@ -8,37 +8,39 @@ const Highscore = () => {
   const navigate = useNavigate();
 
   const handleClick = () => {
-    localStorage.removeItem('scores');
+    localStorage.removeItem("scores");
     navigate("/");
-  }
+  };
 
   return (
     <div className="highscore">
       <Header />
-      <section className="home-section">
-        <h1>Highscores</h1>
-        <ol>
-          {scores &&
-            Object.keys(scores)
-              .sort((a, b) => scores[b] - scores[a])
-              .map(
-                (key, index) =>
-                  index < 5 && (
-                    <li key={index}>
-                      {key} - {scores[key]}
-                    </li>
-                  )
-              )}
-        </ol>
-        <div className="buttons">
-          <Link to="/" className="link">
-            <button className="btn">Go Back</button>
-          </Link>
-          <button className="btn" onClick={handleClick}>
-            Clear Highscore
-          </button>
-        </div>
-      </section>
+      <div className="highscore-main">
+        <section className="highscore-section">
+          <h1 className="title">Highscores</h1>
+          <ol className="orderedList">
+            {scores &&
+              Object.keys(scores)
+                .sort((a, b) => scores[b] - scores[a])
+                .map(
+                  (key, index) =>
+                    index < 5 && (
+                      <li key={index} className="listItem">
+                        {key} - {scores[key]}
+                      </li>
+                    )
+                )}
+          </ol>
+          <div className="buttons">
+            <Link to="/" className="link">
+              <button className="btn">Go Back</button>
+            </Link>
+            <button className="btn" onClick={handleClick}>
+              Clear Highscore
+            </button>
+          </div>
+        </section>
+      </div>
     </div>
   );
 };

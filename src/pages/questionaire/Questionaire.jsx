@@ -46,8 +46,8 @@ const Questionaire = () => {
       <Header timer={timer}/>
       {questionNumber < questionaire.length - 1 ? (
          timer >= 0 ? (
-          <>
-          <section className="home-section">
+          <div className="questionaire-main">
+          <section className="questionaire-section">
             <h1 className="question">
               {questionaire[questionNumber].question}
             </h1>
@@ -72,7 +72,7 @@ const Questionaire = () => {
               </div>
             )}
           </section>
-        </>
+        </div>
         ):
       <>
        { navigate('/result', {state: score}) }
