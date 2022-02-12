@@ -22,7 +22,7 @@
 
 }
 
-h1 {
+.title {
   font-size: 30px;
   font-weight: 800;
 }
@@ -32,11 +32,7 @@ h1 {
   font-weight: normal;
 }
 
-.button{
-  position: relative;
-  left: 0;
-  right: 0;
-  margin: auto;
+button{
   background-color: #218380;
   color: white;
   padding: 10px;
@@ -45,7 +41,4 @@ h1 {
   border-radius: 10px;
   font-size: 20px;
   font-weight: 600;
-  display: flex;
-  justify-content: center;
-  align-items: center;
 }
